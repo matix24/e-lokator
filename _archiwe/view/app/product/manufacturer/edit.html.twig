@@ -1,0 +1,56 @@
+{% extends 'layout/app/app.html.twig' %}
+
+{% block title %}Edytuj dostawcę{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edytuj dostawcę</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ url('app_app_index_index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('manufacturer_index') }}">Lista dostawców</a></li>
+                        <li class="breadcrumb-item active">Edytuj dostawcę</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-plus"></i> Edytuj dostawcę</h3>
+                    </div>
+                    <div class="card-body pad table-responsive">
+                        {{ form_start(form_data) }}
+                        <div class="form-group">
+                            {{ form_label(form_data.manufacturer_name, 'Nazwa dostawcy') }}
+                            {{ form_widget(form_data.manufacturer_name) }}
+                            {{ form_errors(form_data.manufacturer_name) }}
+                        </div>
+                        {{ form_widget(form_data.submit) }}
+                        {{ form_end(form_data) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/localization/messages_pl.min.js') }}"></script>
+<script src="{{ asset('view/app/js/product/manufacturer/add_edit.js') }}"></script>
+{% endblock %}

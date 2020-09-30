@@ -1,0 +1,38 @@
+<script>
+    {# read and display just one flash message type #}
+    {% for message in app.flashes('notice') %}
+        $(document).Toasts('create', {
+            class: 'bg-info', 
+            title: 'Informacja!',
+            body: '{{ message }}',
+            icon: 'fas fa-info-circle fa-lg'
+        });
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+        $(document).Toasts('create', {
+            class: 'bg-danger', 
+            title: 'Błąd!',
+            body: '{{ message }}',
+            icon: 'fas fa-exclamation-circle fa-lg'
+        });
+    {% endfor %}
+
+    {% for message in app.flashes('success') %}
+        $(document).Toasts('create', {
+            class: 'bg-success', 
+            title: 'Sukces!',
+            body: '{{ message }}',
+            icon: 'far fa-check-circle fa-lg'
+        });
+    {% endfor %}
+
+    {% for message in app.flashes('warning') %}
+        $(document).Toasts('create', {
+            class: 'bg-warning',  
+            title: 'Ostrzeżenie!',
+            body: '{{ message }}',
+            icon: 'fas fa-exclamation-triangle fa-lg'
+        }).setGra;
+    {% endfor %}
+</script>

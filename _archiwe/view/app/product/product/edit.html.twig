@@ -1,0 +1,93 @@
+{% extends 'layout/app/app.html.twig' %}
+
+{% block title %}Edytuj product{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edytuj produkt</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ url('app_app_index_index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('product_index') }}">Lista produktów</a></li>
+                        <li class="breadcrumb-item active">Edytuj produkt</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-plus"></i> Edytuj produkt</h3>
+                    </div>
+                    <div class="card-body pad table-responsive">
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_label(form.product_name) }}
+                            {{ form_widget(form.product_name) }}
+                            {{ form_errors(form.product_name) }}
+                        </div>
+                         <div class="form-group">
+                            {{ form_label(form.product_description) }}
+                            {{ form_widget(form.product_description) }}
+                            {{ form_errors(form.product_description) }}
+                        </div>     
+                         <div class="form-group">
+                            {{ form_label(form.product_manufacturer_symbol) }}
+                            {{ form_widget(form.product_manufacturer_symbol) }}
+                            {{ form_errors(form.product_manufacturer_symbol) }}
+                        </div>        
+                        <div class="form-group">
+                            {{ form_label(form.category) }}
+                            {{ form_widget(form.category) }}
+                            {{ form_errors(form.category) }}
+                        </div>    
+                        <div class="form-group">
+                            {{ form_label(form.manufacturer) }}
+                            {{ form_widget(form.manufacturer) }}
+                            {{ form_errors(form.manufacturer) }}
+                        </div>    
+                        <div class="form-group">
+                            {{ form_label(form.product_manufacturer_price) }}
+                            {{ form_widget(form.product_manufacturer_price) }}
+                            {{ form_errors(form.product_manufacturer_price) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.product_details) }}
+                            {{ form_widget(form.product_details) }}
+                            {{ form_errors(form.product_details) }}
+                        </div>  
+                        <div class="form-group">
+                            <div class="form-check">
+                                {{ form_widget(form.product_disabled) }}
+                                {{ form_label(form.product_disabled) }}
+                                {{ form_errors(form.product_disabled) }}
+                            </div>
+                        </div>
+                        {{ form_widget(form.submit) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/localization/messages_pl.min.js') }}"></script>
+{# <script src="{{ asset('view/app/js/product/product/add_edit.js') }}"></script> #}
+{% endblock %}
